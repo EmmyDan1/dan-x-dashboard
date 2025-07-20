@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../assets/images/X-logo.png";
+import Logo from "../assets/images/LogoImg.png";
 
 import { useAuth } from "../context/AuthContext";
 
@@ -10,11 +10,12 @@ const LoginForm = () => {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!username || !email) {
-      alert("Please fill in both fields.");
+      setError("Please fill in all fields.");
       return;
     }
 
@@ -51,6 +52,8 @@ const LoginForm = () => {
             className="w-full px-4 py-2 mb-4 rounded-md bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
 
+          {error && <p className="text-red mb-4">{error}</p>}
+
           <input
             type="email"
             placeholder="Email"
@@ -58,7 +61,7 @@ const LoginForm = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-2 mb-6 rounded-md bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
-
+          {error && <p className="text-red mb-4">{error}</p>}
           <button
             type="submit"
             className="w-full bg-orange-500 hover:bg-orange-600 transition-colors text-white py-2 rounded-md font-semibold"

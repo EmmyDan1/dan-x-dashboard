@@ -1,5 +1,4 @@
-// data/usersData.ts
-import type { IconType } from "react-icons";
+
 import {
   FaRegBuilding,
   FaRocket,
@@ -9,10 +8,22 @@ import {
 } from "react-icons/fa";
 import { MdAddModerator, MdAccountTree } from "react-icons/md";
 
+export const iconMap: Record<string, React.ElementType> = {
+  FaRegBuilding,
+  FaRocket,
+  FaUserFriends,
+  FaCity,
+  FaIndustry,
+  MdAddModerator,
+  MdAccountTree,
+};
+
+export default iconMap;
+
 export interface User {
   id: number;
   group: string;
-  groupIcon: IconType;
+  groupIcon: string;
   subscription: number;
   status: {
     label: string;
@@ -28,7 +39,7 @@ export const users: User[] = [
   {
     id: 1,
     group: "Grand Rapids",
-    groupIcon: FaRegBuilding,
+    groupIcon: "FaRegBuilding",
     subscription: 75,
     status: { label: "intuitive", color: "bg-orange-500" },
     avatars: [
@@ -43,7 +54,7 @@ export const users: User[] = [
   {
     id: 2,
     group: "Bell Gardens",
-    groupIcon: FaCity,
+    groupIcon: "FaCity",
     subscription: 50,
     status: { label: "magnetic", color: "bg-blue" },
     avatars: [
@@ -58,7 +69,7 @@ export const users: User[] = [
   {
     id: 3,
     group: "San Diego",
-    groupIcon: FaIndustry,
+    groupIcon: "FaIndustry",
     subscription: 100,
     status: { label: "dynamic", color: "bg-green" },
     avatars: [
@@ -73,7 +84,7 @@ export const users: User[] = [
   {
     id: 4,
     group: "Los Angeles",
-    groupIcon: FaRocket,
+    groupIcon: "FaRocket",
     subscription: 40,
     status: { label: "innovative", color: "bg-purple-500" },
     avatars: [
@@ -88,7 +99,7 @@ export const users: User[] = [
   {
     id: 5,
     group: "New York",
-    groupIcon: FaUserFriends,
+    groupIcon: "FaUserFriends",
     subscription: 90,
     status: { label: "collaborative", color: "bg-yellow" },
     avatars: [
@@ -103,7 +114,7 @@ export const users: User[] = [
   {
     id: 6,
     group: "Chicago",
-    groupIcon: MdAddModerator,
+    groupIcon: "MdAddModerator",
     subscription: 60,
     status: { label: "supportive", color: "bg-pink-500" },
     avatars: [
@@ -118,7 +129,7 @@ export const users: User[] = [
   {
     id: 7,
     group: "Houston",
-    groupIcon: MdAccountTree,
+    groupIcon: "MdAccountTree",
     subscription: 80,
     status: { label: "dynamic", color: "bg-blue" },
     avatars: [

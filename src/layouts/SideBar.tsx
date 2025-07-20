@@ -84,7 +84,6 @@ const SideBar: React.FC<SideBarType> = ({ isOpen, toggleSidebar }) => {
 
               <ul className="flex flex-col gap-2 items-start">
                 <li
-                  // onClick={handleHelp}
                   className="w-full bg-blue-600 hover:bg-blue-700 p-2 transition-colors rounded-md hover:bg-gray-300/10 cursor-pointer"
                 >
                   Help

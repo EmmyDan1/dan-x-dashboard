@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { FaRegBuilding } from "react-icons/fa";
 import type { User } from "../../../../data/usersData";
+
+
 
 const statusColors: Record<string, string> = {
   intuitive: "bg-orange-500",
-  magnetic: "bg-blue-500",
+  magnetic: "bg-blue",
   dynamic: "bg-purple-500",
-  innovative: "bg-green-500",
+  innovative: "bg-green",
   collaborative: "bg-pink-500",
   supportive: "bg-yellow-500",
 };
@@ -17,7 +18,7 @@ type Props = {
   onSave: (user: User) => void;
 };
 
-export const AddUserModal: React.FC<Props> = ({ isOpen, onClose, onSave }) => {
+ const AddUserModal: React.FC<Props> = ({ isOpen, onClose, onSave }) => {
   const [form, setForm] = useState({
     group: "",
     subscription: 0,
@@ -34,7 +35,7 @@ export const AddUserModal: React.FC<Props> = ({ isOpen, onClose, onSave }) => {
     const newUser: User = {
       id: Date.now(),
       group: form.group,
-      groupIcon: FaRegBuilding,
+      groupIcon: "FaRegBuilding",
       subscription: Number(form.subscription),
       status: {
         label: form.status,
@@ -53,32 +54,38 @@ export const AddUserModal: React.FC<Props> = ({ isOpen, onClose, onSave }) => {
     onSave(newUser);
   };
 
+
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-black p-6 rounded-md w-full max-w-md">
+      <div className="bg-black text-white p-6 rounded-md w-full max-w-md">
         <h2 className="text-xl font-semibold mb-4">Add New User</h2>
         <input
           value={form.group}
           onChange={(e) => handleChange("group", e.target.value)}
           placeholder="Group"
-          className="border w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner "
+          className="border text-gray-400 w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner "
         />
         <input
           type="number"
           value={form.subscription}
           onChange={(e) => handleChange("subscription", e.target.value)}
           placeholder="Subscription %"
-          className="text-gray-400 border w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
+          className="text-gray-400  w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
         />
         <select
           value={form.status}
           onChange={(e) => handleChange("status", e.target.value)}
-          className="text-gray-400 border w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
+          className="text-gray-400 w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
         >
           {Object.keys(statusColors).map((status) => (
-            <option key={status} value={status}>
+            <option
+              key={status}
+              value={status}
+              className="border border-white/5 bg-black backdrop-blur-md shadow-inner "
+            >
               {status}
             </option>
           ))}
@@ -101,6 +108,7 @@ export const AddUserModal: React.FC<Props> = ({ isOpen, onClose, onSave }) => {
           </button>
           <button
             onClick={handleSubmit}
+            type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded"
           >
             Add

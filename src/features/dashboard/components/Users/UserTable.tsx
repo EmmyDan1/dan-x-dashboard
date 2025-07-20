@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { FiArrowDown, FiEdit2, FiSave, FiX } from "react-icons/fi";
-
+import React, { useState } from "react";
+import { FiArrowDown, FiEdit2, FiSave, FiX, FiDelete } from "react-icons/fi";
 import { ProgressBar } from "./ProgressBar";
 import { StatusBadge } from "./StatusBadge";
 import { AvatarGroup } from "./AvatarGroup";
 import type { User } from "../../../../data/usersData";
+import { iconMap } from "../../../../data/IconMap";
 
 type UserTableProps = {
   users: User[];
   setUsers: (users: User[]) => void;
 };
 
-export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
+const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editedData, setEditedData] = useState<Partial<User>>({});
 
@@ -55,6 +55,13 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
     setEditedData((prev) => ({ ...prev, [field]: value }));
   };
 
+  function handleDelete(id: number) {
+    setUsers(users.filter((user) => user.id !== id));
+  }
+
+  const GroupIcon = iconMap[users[0].groupIcon];
+  console.log("Icon name:", users[0].groupIcon);
+  console.log("Icon component:", GroupIcon);
   return (
     <div className="mt-6 bg-primary text-gray-400 rounded-xl shadow-lg border border-white/10 overflow-hidden">
       <div className="md:hidden p-4 space-y-4">
@@ -66,7 +73,11 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
             <div className="flex justify-between items-start mb-3">
               <div className="flex flex-col gap-2">
                 <div className="border w-12  border-white/15 bg-black/30 backdrop-blur-md shadow-inner p-2 rounded-full md:w-0">
-                  <user.groupIcon className="text-xl mx-auto " />
+                  {GroupIcon ? (
+                    <GroupIcon className="text-xl mx-auto" />
+                  ) : (
+                    <span className="text-xs text-red-400"> Icon</span>
+                  )}
                 </div>
                 {editingId === user.id ? (
                   <input
@@ -95,6 +106,12 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
                     className="text-gray-400 hover:text-green-400"
                   >
                     <FiSave />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(user.id)}
+                    className="text-gray-400 hover:text-red-400"
+                  >
+                    <FiDelete />
                   </button>
                 </div>
               ) : (
@@ -221,7 +238,11 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
                   <td className="px-4 py-4 md:px-6 text-white">
                     <div className="flex items-center gap-2">
                       <div className="border border-white/15 bg-black/30 backdrop-blur-md shadow-inner p-2 rounded-full">
-                        <user.groupIcon className="text-xl" />
+                        {GroupIcon ? (
+                          <GroupIcon className="text-xl mx-auto" />
+                        ) : (
+                          <span className="text-xs text-red-400">No Icon</span>
+                        )}
                       </div>
                       {editingId === user.id ? (
                         <input
@@ -291,7 +312,6 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
                     )}
                   </td>
 
-                  
                   <td className="px-4 py-4">
                     <AvatarGroup
                       avatars={user.avatars}
@@ -299,7 +319,6 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
                     />
                   </td>
 
-                 
                   <td className="px-4 py-4 text-white">
                     {editingId === user.id ? (
                       <>
@@ -331,7 +350,6 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
                     )}
                   </td>
 
-                  
                   <td className="px-4 py-4 text-right">
                     {editingId === user.id ? (
                       <div className="flex justify-end gap-2">
@@ -346,6 +364,12 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
                           className="text-gray-400 hover:text-green-400 transition"
                         >
                           <FiSave />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(user.id)}
+                          className="text-gray-400 hover:text-red-400 transition"
+                        >
+                          <FiDelete />
                         </button>
                       </div>
                     ) : (
@@ -371,3 +395,4 @@ export const UserTable: React.FC<UserTableProps> = ({ users, setUsers }) => {
     </div>
   );
 };
+export default UserTable;

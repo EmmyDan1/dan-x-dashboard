@@ -1,10 +1,11 @@
 import MetricCard from "./MetricCard";
 import QuickActionsPanel from "./QuickActionsPanel";
 import RevenueLineChart from "./Charts/RevenueLineChart";
-import { UserTable } from "./Users/UserTable";
+import  UserTable  from "./Users/UserTable";
 import type { User } from "../../../data/usersData";
 import { useState } from "react";
 import { ActionsData } from "../../../data/Actions";
+
 
 type DashboardProps = {
   isEditing: boolean;
