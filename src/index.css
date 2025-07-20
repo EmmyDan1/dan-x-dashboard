@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.editable-table tr:first-child,
+.editable-table tr:nth-child(2) {
+  position: relative;
+  z-index: 10;
+  isolation: isolate; 
+}
+
+.editable-table tr:first-child button,
+.editable-table tr:nth-child(2) button {
+  position: relative;
+  z-index: 11;
+}
+
+
+[role="button"] {
+  touch-action: none;
+}
+
+[data-dragging="true"] {
+  transition: transform 0.25s ease;
+}
