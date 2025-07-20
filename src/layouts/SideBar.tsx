@@ -48,22 +48,21 @@ const SideBar: React.FC<SideBarType> = ({ isOpen, toggleSidebar }) => {
               >
                 <FiGrid className=" text-gray-400" />
               </button>
-              <li className="text-white hover:bg-blue-700 p-1 rounded-md">
+              <li className="text-white hover:bg-blue-700 p-1 rounded-md cursor-pointer">
                 <FiSearch className=" text-gray-400" />
               </li>
-              <li className="text-white hover:bg-blue-700 p-1 rounded-md">
+              <li className="text-white hover:bg-blue-700 p-1 rounded-md cursor-pointer">
                 <FiSidebar className=" text-gray-400" />
               </li>
-              <li className="text-white hover:bg-blue-700 p-1 rounded-md">
+              <li className="text-white hover:bg-blue-700 p-1 rounded-md cursor-pointer">
                 <FiCalendar className=" text-gray-400" />
               </li>
-              <li className="text-white hover:bg-blue-700 p-1 rounded-md">
+              <li className="text-white hover:bg-blue-700 p-1 rounded-md cursor-pointer">
                 <RiBarChartLine className=" text-gray-400" />
               </li>
             </ul>
-
             <ul className="-translate-y-8 space-y-6 text-xl">
-              <li className="text-white hover:bg-blue-700 p-1 rounded-md">
+              <li className="text-white hover:bg-blue-700 p-1 rounded-md cursor-pointer">
                 <FiSettings className=" text-gray-400" />
               </li>
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../assets/images/X-logo.png";
 
 import { useAuth } from "../context/AuthContext";
 
@@ -12,7 +13,16 @@ const LoginForm = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!username || !email) return;
+    if (!username || !email) {
+      alert("Please fill in both fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
     login(username, email);
     navigate("/dashboard");
   };
@@ -20,8 +30,7 @@ const LoginForm = () => {
   return (
     <div className="flex items-center h-screen bg-[#002121] text-white">
       <div className="w-1/2 hidden md:flex flex-col justify-center items-center px-10">
-        <h1 className="text-3xl font-semibold">Dan-X</h1>
-        <p className="text-gray-400 mt-2">Work. Smarter.</p>
+        <img src={Logo} alt="Logo" className="w-full max-w-md h-auto mb-4" />
       </div>
       <div className="h-[400px] w-px bg-gray-300"></div>
       <div className="w-full md:w-1/2 flex items-center justify-center px-">
