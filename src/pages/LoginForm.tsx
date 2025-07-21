@@ -31,7 +31,7 @@ const LoginForm = () => {
   return (
     <div className="flex items-center h-screen bg-[#002121] text-white">
       <div className="w-1/2 hidden md:flex flex-col justify-center items-center px-10">
-        <img src={Logo} alt="Logo" className="w-full max-w-md h-auto mb-4 opacity-60" />
+        <img src={Logo} alt="Logo" className="w-full max-w-md h-auto mb-4 opacity-60" loading="lazy"/>
       </div>
       <div className="h-[400px] w-px bg-gray-300"></div>
       <div className="w-full md:w-1/2 flex items-center justify-center px-">
