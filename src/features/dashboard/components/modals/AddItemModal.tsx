@@ -77,7 +77,7 @@ type Props = {
           value={form.group}
           onChange={(e) => handleChange("group", e.target.value)}
           placeholder="Group"
-          className="border text-gray-400 w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner "
+          className=" text-gray-400 w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner "
         />
         <input
           type="number"
@@ -105,13 +105,13 @@ type Props = {
           value={form.title}
           onChange={(e) => handleChange("title", e.target.value)}
           placeholder="Title"
-          className="border w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
+          className=" w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
         />
         <input
           value={form.subtitle}
           onChange={(e) => handleChange("subtitle", e.target.value)}
           placeholder="Subtitle"
-          className="border w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
+          className=" w-full p-2 mb-2 border border-white/5 bg-white/5 backdrop-blur-md shadow-inner"
         />
         <div className="flex justify-end gap-2">
           <button onClick={onClose} className="text-gray-500">

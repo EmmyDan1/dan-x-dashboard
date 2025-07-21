@@ -31,7 +31,8 @@ const QuickActionsPanel: React.FC<QuickActionsPanelProps> = ({
       {actions.map((action) => (
         <div
           key={action.id}
-          className="relative flex items-center justify-around gap-4 bg-primary p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-4 border border-white/20 bg-white/5 backdrop-blur-md shadow-inner cursor-pointer"
+          className="relative flex items-center justify-around gap-4 bg-primary p-4 rounded-lg 
+           hover:shadow-lg transition-shadow duration-300 mb-4 border border-white/20 bg-white/5 backdrop-blur-md shadow-inner cursor-pointer"
         >
           <div className="bg-primary p-2 border border-white/20 bg-white/5 backdrop-blur-md shadow-inner rounded-md">
             <action.icon className="text-white text-2xl" />
