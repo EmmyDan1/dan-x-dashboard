@@ -6,7 +6,7 @@ import { useSidebar } from "../hooks/useSidebar";
 import AddItemModal from "../features/dashboard/components/modals/AddItemModal";
 import { users as initialUsers } from "../data/usersData";
 import type { User } from "../data/usersData";
-import { iconMap } from "../data/IconMap";
+import { iconMap } from "../data/iconMap";
 
 const AppLayout = () => {
   const { isOpen: sidebarOpen, toggleSidebar } = useSidebar();
@@ -61,7 +61,7 @@ const AppLayout = () => {
           setShowAddItemModal={setShowAddItemModal}
           onAddUser={() => setShowAddItemModal(true)}
         />
-        <main className="flex-1 overflow-y-auto p-4">
+        <main className="flex-1 overflow-y-auto ">
           <Dashboard
             isEditing={isEditingQuickActions}
             setIsEditing={setIsEditingQuickActions}

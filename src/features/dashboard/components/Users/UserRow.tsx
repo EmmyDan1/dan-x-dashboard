@@ -3,7 +3,7 @@ import { StatusBadge } from "./StatusBadge";
 import { ProgressBar } from "./ProgressBar";
 import { AvatarGroup } from "./AvatarGroup";
 import { FiEdit2 } from "react-icons/fi";
-import { iconMap } from "../../../../data/IconMap";
+import { iconMap } from "../../../../data/iconMap";
 
 type UserRowProps = {
   user: User;

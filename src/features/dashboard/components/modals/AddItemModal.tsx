@@ -32,6 +32,17 @@ type Props = {
   };
 
   const handleSubmit = () => {
+
+    if (
+      !form.group ||
+      form.subscription <= 0 ||
+      !form.title ||
+      !form.subtitle
+    ) {
+      alert("Please fill in all fields correctly.");
+      return;
+    }
+
     const newUser: User = {
       id: Date.now(),
       group: form.group,
@@ -46,7 +57,7 @@ type Props = {
         "/avatars/avatar2.png",
         "/avatars/avatar3.png",
       ],
-      overflowCount: 0,
+      overflowCount: 4,
       title: form.title,
       subtitle: form.subtitle,
     };
@@ -61,7 +72,7 @@ type Props = {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-black text-white p-6 rounded-md w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4">Add New User</h2>
+        <h2 className="text-xl font-semibold mb-4">Add Group</h2>
         <input
           value={form.group}
           onChange={(e) => handleChange("group", e.target.value)}

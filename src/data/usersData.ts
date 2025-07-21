@@ -18,7 +18,7 @@ export const iconMap: Record<string, React.ElementType> = {
   MdAccountTree,
 };
 
-export default iconMap;
+
 
 export interface User {
   id: number;

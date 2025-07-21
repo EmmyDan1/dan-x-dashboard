@@ -38,7 +38,7 @@ const SideBar: React.FC<SideBarType> = ({ isOpen, toggleSidebar }) => {
         <div
           className={`${
             isOpen ? "fixed inset-y-0 left-0 z-40" : "relative"
-          } w-14 bg-primary text-white p-1 shadow-md rounded md:block`}
+          } w-12 bg-primary text-white p-1 shadow-md rounded md:block`}
         >
           <div className="border border-white/5 bg-white/5 backdrop-blur-md shadow-inner flex flex-col justify-between h-full items-center ">
             <ul className="space-y-5 mt-6 text-xl ">
@@ -102,7 +102,7 @@ const SideBar: React.FC<SideBarType> = ({ isOpen, toggleSidebar }) => {
           <div
             className={`
       ${isOpen ? "fixed md:relative" : "hidden"}
-      inset-y-0 left-14 z-30 transition-all duration-300
+      inset-y-0 left-12 z-30 transition-all duration-300
       w-64 bg-primary text-white p-1 rounded-xl
       md:block
     `}
