@@ -47,7 +47,7 @@ const AppLayout = () => {
 
   return (
     <div className="flex h-screen bg-secondary w-full max-w-full">
-      <SideBar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      <SideBar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} userList={userList}/>
 
       <div
         className={`

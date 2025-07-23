@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         </ul>
         <h1 className="text-3xl font-semibold mt-4">
-          Hey here, {user?.name || "Demo User"}
+          Hey there, {user?.name || "Demo User"}
         </h1>
         <p className="text-gray-400 mt-2">
           Welcome to your dashboard. Here you can manage your settings and

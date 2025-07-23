@@ -19,7 +19,7 @@ import { RiBarChartLine } from "react-icons/ri";
 import SearchBar from "../components/SearchBar";
 import { useAuth } from "../context/AuthContext";
 
-const SideBar: React.FC<SideBarType> = ({ isOpen, toggleSidebar }) => {
+const SideBar: React.FC<SideBarType> = ({ isOpen, toggleSidebar, userList }) => {
   const [displayLogout, setDisplayLogout] = useState(false);
   const { user, logout } = useAuth();
 
@@ -109,7 +109,7 @@ const SideBar: React.FC<SideBarType> = ({ isOpen, toggleSidebar }) => {
           >
             <div className="border border-white/20 backdrop-blur-md bg-white/5 shadow-inner rounded-lg h-full p-4">
               <h3 className="text-2xl font-semibold mb-8">Your Dashboard</h3>
-              <SearchBar className="mb-6 w-full p-2 rounded-md bg-primary text-white shadow" />
+              <SearchBar className="mb-6 w-full p-2 rounded-md bg-primary text-white shadow" userList={userList} />
               <ul className="pointer-cursor text-ivory">
                 <li className="flex items-center  hover:bg-black/10 cursor-pointer p-1 rounded-md space-x-2 mb-4">
                   <FiGrid className="text-xl text-gray-400" />
